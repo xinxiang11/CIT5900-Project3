@@ -6,22 +6,33 @@ We consolidated scattered data sources, enriched metadata using APIs, and prepar
 ---
 
 ## Project Structure
+## 📁 Folder Structure
 
 ```
-.
-├── analysis/
-│   ├── merge_clean.py         # Merges and cleans raw CSV files
-│   ├── deduplicate_match.py   # Deduplicates data and matches metadata
-│   └── enrich_data.py         # Enriches records using OpenAlex / CrossRef APIs
+CIT5900_Project3/
 │
-├── raw/                       # Raw input CSVs (8 files)
-├── data/                      # Supplementary metadata (ProjectsAllMetadata.xlsx)
-├── output/                    # All intermediate & final results
-├── main.py                    # Main script that runs all three steps in sequence
-├── README.md                  # Project overview (this file)
-└── requirements.txt           # Python dependencies
+├── analysis/                 # Python modules for each step
+│   ├── merge_clean.py
+│   ├── deduplicate_match.py
+│   ├── enrich_data.py
+│   ├── eda_analysis.py
+│
+├── data/                     # Input files
+│   └── ProjectsAllMetadata.xlsx
+│   └── raw                   # data from all groups
+│
+├── output/                   # All intermediate and final results
+│   ├── merged_cleaned.csv
+│   ├── matched_publications.csv
+│   ├── enriched_output.csv
+│   ├── ResearchOutputs_Group6.xlsx
+│   ├── *.png
+│
+├── main.py                   # Orchestration script to run all steps
+└── README.md
+└── requirements.txt
 ```
----
+
 
 ## How to Run the Project
 
@@ -46,41 +57,38 @@ This will:
 All outputs will be saved to the `output/` folder.
 
 ---
+## Project Steps
 
-## 🧪 Completed Modules
-
-###  Step 1: Merging & Cleaning
-- Combine 8 CSVs
-- Remove records with missing DOI/URL/type
-- Standardize column formats
+### Step 1: Data Merging & Cleaning
+- Merges all group CSV files
+- Standardizes column names
+- Drops rows with no DOI or URL
+- Outputs: `output/merged_cleaned.csv`
 
 ### Step 2: Deduplication & Matching
-- Deduplicate by DOI or title
-- Match co-authors and metadata using `ProjectsAllMetadata.xlsx`
+- Deduplicates by DOI and Title
+- Matches publications to FSRDC projects via PI/Researcher names
+- Fills missing metadata
+- Outputs: `output/matched_publications.csv`
 
-### Step 3: Data Enrichment
-- Query OpenAlex and CrossRef APIs
-- Enrich fields like author list, year, volume, venue
-- Standardize final columns
+### Step 3: Metadata Enrichment
+- Uses CrossRef and OpenAlex APIs to enrich:
+  - Title, venue, year, volume, pages, citation count, etc.
+- Adds APA-style reference (OutputBiblio)
+- Outputs: `enriched_output.csv`, `ResearchOutputs_Group6.xlsx`
 
-> Output: `enriched_data.csv` (stored in `output/`)
+### Step 4: Exploratory Data Analysis
+- Computes:
+  - Top RDCs by output
+  - Most cited works
+  - Top authors
+  - Publication lags
+  - Citation vs. productivity
+- Saves results in `.csv` and `.png` files in `output/`
 
----
+### 🔜 Step 5: (In Progress)
+- Final summary and packaging for submission
 
-## 📈 Next Steps (Coming Soon)
-
-- 📊 **EDA and Visualizations** (Top RDCs, authors, trends over time)
-- 🤖 **Modeling Analysis** (PCA, clustering, text classification)
-- 🌐 **GitHub Pages Dashboard**
-
----
-
-
-## 🌐 GitHub Pages Dashboard
-
-> Will be added after all figures and EDA are completed.
-
----
 
 ## 📄 Final Deliverables
 
