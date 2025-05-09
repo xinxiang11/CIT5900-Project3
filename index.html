@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Group 6 - CIT5900 Research Output Analysis</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 90%;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 90%;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    thead {
+      background-color: #f2f2f2;
+    }
+    h1, h2, h3, h4 {
+      text-align: left;
+      margin-top: 40px;
+    }
+    p {
+      text-align: justify;
+      line-height: 1.5;
+      margin: 10px auto;
+      max-width: 90%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Group 6 - FSRDC Research Output Analysis</h1>
+  <p>
+    This site presents the visual results and findings from our group project in CIT5900.
+    It includes both <strong>Exploratory Data Analysis (EDA)</strong> and <strong>Modeling & Prediction</strong> based on FSRDC research output data.
+  </p>
+
+  <h2>1. Exploratory Data Analysis</h2>
+
+  <h3>1.1 Top 10 RDCs by Research Output</h3>
+  <p>Boston leads with 149 outputs, followed by Triangle and Michigan. The top 10 shows a sharp drop from the top three to others.</p>
+  <table>
+    <thead>
+      <tr><th>RDC</th><th>Count</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Boston</td><td>149</td></tr>
+      <tr><td>Triangle</td><td>126</td></tr>
+      <tr><td>Michigan</td><td>124</td></tr>
+      <tr><td>Chicago</td><td>117</td></tr>
+      <tr><td>Washington</td><td>92</td></tr>
+      <tr><td>Atlanta</td><td>63</td></tr>
+      <tr><td>Baruch</td><td>63</td></tr>
+      <tr><td>Texas</td><td>60</td></tr>
+      <tr><td>UCLA</td><td>58</td></tr>
+      <tr><td>Utah</td><td>55</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1.2 Annual Publication Trend</h3>
+  <p>Research output was minimal before 2000, rose steadily to peak in 2011–2012, and stabilized around 80 publications per year. The 2025 dip likely reflects incomplete data.</p>
+  <img src="output/eda_figures/fig_publication_trend.png" alt="Publication Trend">
+
+  <h3>1.3 Top 10 Most Prolific Authors</h3>
+  <p>Joshua Linn (31) and Tongyang Yang (30) top the list. Most other top authors have 22–23 outputs, showing a stable group of high contributors.</p>
+  <img src="output/eda_figures/fig_top10_named_authors.png" alt="Top 10 Authors">
+
+  <h3>1.4 Citation Insights</h3>
+  <p>Most FSRDC publications receive fewer than 70 citations, but a few highly cited papers push the average above 200. The histogram and boxplot reveal a right-skewed distribution with several outliers.</p>
+  <img src="output/eda_figures/fig_citation_histogram.png" alt="Citation Histogram">
+  <img src="output/eda_figures/fig_citation_boxplot.png" alt="Citation Boxplot">
+  <p>The table below summarizes citation statistics across 1,277 publications.</p>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Count</td><td>1277</td></tr>
+      <tr><td>Mean</td><td>212.23</td></tr>
+      <tr><td>Std Dev</td><td>1802.03</td></tr>
+      <tr><td>Min</td><td>0</td></tr>
+      <tr><td>25%</td><td>5</td></tr>
+      <tr><td>Median (50%)</td><td>21</td></tr>
+      <tr><td>75%</td><td>70</td></tr>
+      <tr><td>Max</td><td>54,257</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1.5 Institutional Productivity vs Citation Impact</h3>
+  <p>
+    From the tables and scatter plot below, while Boston, Michigan, and Triangle lead in publication count, Washington and Yale stand out with the highest average citations.
+    This suggests that a few highly cited papers can outweigh large volumes of moderately cited ones in research impact.
+  </p>
+
+  <h4>Top 10 Institutions by Number of Publications</h4>
+  <table>
+    <thead>
+      <tr><th>ProjectRDC</th><th>Productivity</th><th>AvgCitations</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Boston</td><td>149</td><td>166.84</td></tr>
+      <tr><td>Triangle</td><td>126</td><td>144.06</td></tr>
+      <tr><td>Michigan</td><td>124</td><td>164.58</td></tr>
+      <tr><td>Chicago</td><td>117</td><td>140.98</td></tr>
+      <tr><td>Washington</td><td>92</td><td>484.84</td></tr>
+      <tr><td>Atlanta</td><td>63</td><td>407.20</td></tr>
+      <tr><td>Baruch</td><td>63</td><td>193.23</td></tr>
+      <tr><td>Texas</td><td>60</td><td>51.11</td></tr>
+      <tr><td>UCLA</td><td>58</td><td>177.67</td></tr>
+      <tr><td>Utah</td><td>55</td><td>199.77</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Top 10 Institutions by Average Citations (≥5 Publications)</h4>
+  <table>
+    <thead>
+      <tr><th>ProjectRDC</th><th>Productivity</th><th>AvgCitations</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Washington</td><td>92</td><td>484.84</td></tr>
+      <tr><td>Yale</td><td>5</td><td>483.40</td></tr>
+      <tr><td>Atlanta</td><td>63</td><td>407.20</td></tr>
+      <tr><td>Utah</td><td>55</td><td>199.77</td></tr>
+      <tr><td>Baruch</td><td>63</td><td>193.23</td></tr>
+      <tr><td>UCLA</td><td>58</td><td>177.67</td></tr>
+      <tr><td>Seattle</td><td>17</td><td>167.56</td></tr>
+      <tr><td>Boston</td><td>149</td><td>166.84</td></tr>
+      <tr><td>Michigan</td><td>124</td><td>164.58</td></tr>
+      <tr><td>Triangle</td><td>126</td><td>144.06</td></tr>
+    </tbody>
+  </table>
+
+  <img src="output/eda_figures/fig_inst_prod_vs_citations_clear.png" alt="Productivity vs Citations">
+
+  <h3>1.6 Publication Time Lag</h3>
+  <p>The median publication lag is 4 years, with most outputs published within the first decade. However, a small number of outliers take more than 20 years. The histogram shows a right-skewed distribution centered around 0–5 years, while the boxplot highlights those extreme cases.</p>
+  <img src="output/eda_figures/fig_publication_lag_histogram.png" alt="Lag Histogram">
+  <img src="output/eda_figures/fig_publication_lag_boxplot.png" alt="Lag Boxplot">
+  <p>At the RDC level, Philadelphia and Wisconsin have the fastest average lags (~0–1 years), while CMU, UCLA, and Washington show the longest delays. This suggests variability in research turnaround depending on project complexity or dissemination speed.</p>
+  <img src="output/eda_figures/fig_fastest_rdc_lag.png" alt="Fastest RDCs by Lag">
+  <img src="output/eda_figures/fig_slowest_rdc_lag.png" alt="Slowest RDCs by Lag">
+</body>
+</html>
+
+<h2>2. Modeling & Prediction</h2>
+<p>
+  This section addresses two key predictive tasks using the enriched FSRDC dataset:
+</p>
+<ul>
+  <li><strong>Task 1:</strong> Predicting OutputType based on metadata and semantic features.</li>
+  <li><strong>Task 2:</strong> Estimating ProjectDuration using project-level attributes.</li>
+</ul>
+
+<h3>2.1 Task 1: Predicting OutputType</h3>
+<p>
+  In this task, we aim to classify the type of research output using features like OutputTitle, ProjectRDC, ProjectDuration, and BERT-based cluster assignments.
+</p>
+
+<h4>2.1.1 BERT Embeddings and Clustering</h4>
+<p>
+  We used BERT to embed research titles and applied KMeans (k=5) to identify semantic clusters. UMAP projection below shows clear separation between topics.
+</p>
+<p>
+  Cluster 4 (purple) mostly contains health-related topics, while Cluster 2 (green) groups international trade studies. This confirms the effectiveness of semantic clustering.
+</p>
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="output/model_figures/Projection of BERT Embeddings for OutputTitle.png" alt="BERT OutputTitle Clustering" width="700">
+</div>
+
+<h4>2.1.2 Dimensionality Reduction via PCA</h4>
+<p>
+  To reduce the original 984-dimensional feature space, we applied PCA and retained 198 components, preserving 95% of the variance.
+</p>
+<p>
+  The curve below shows that most variance is captured within the first 200 components, enabling more efficient modeling with minimal information loss.
+</p>
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="output/model_figures/PCA Variance Explained by Components.png" alt="PCA Explained Variance" width="700">
+</div>
+
+<h4>2.1.3 Logistic Regression Results</h4>
+<p>
+  We trained a multinomial logistic regression model using the PCA-reduced features, achieving 79.4% accuracy. The confusion matrix below highlights strong performance on major categories like 'journal-article' and 'WP', but also reveals misclassification issues with rare or overlapping labels.
+</p>
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="output/model_figures/Confusion Matrix by Using Logistic Regression.png" alt="Logistic Regression Confusion Matrix" width="700">
+</div>
+
+<h3>2.1.4 Random Forest: Confusion Matrix</h3>
+<p>
+We trained a Random Forest classifier (100 trees) on PCA-reduced features. It achieved 78.7% accuracy—slightly below logistic regression—but performed better on rare classes like 'DI' and 'TN'.
+</p>
+
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="output/model_figures/Confusion Matrix by Using Random Forest.png" alt="Random Forest Confusion Matrix" width="700">
+</div>
+
+<h3>2.2 Task 2: Predicting Project Duration</h3>
+
+<h4>2.2.1 BERT Embeddings and Clustering on Project Titles</h4>
+<p>
+To explore patterns related to project length, we embedded <code>ProjectTitle</code> using BERT and applied KMeans clustering (k=5) to group similar projects.
+</p>
+<p>
+UMAP projection below shows clear semantic grouping. Some clusters reflect themes like international trade, inequality, or policy studies. These embeddings help reveal factors influencing project timelines.
+</p>
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="output/model_figures/Projection of BERT Embeddings for ProjectTitle.png" alt="BERT ProjectTitle Clustering" width="700">
+</div>
+
+<h4>2.2.2 PCA for Feature Compression</h4>
+<p>
+We reduced 58 original features to 30 principal components using PCA, preserving 95% of the variance.
+</p>
+<p>
+The curve shows that variance gain flattens after 30 components, helping improve model generalization and efficiency.
+</p>
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="output/model_figures/PCA Variance Explained by Components2.png" alt="PCA for Duration Prediction" width="700">
+</div>
+
+<h4>2.2.3 Linear Regression Results</h4>
+<p>
+We applied linear regression to predict project duration using PCA-reduced features. The model achieved an MSE of 2.74 and an R² score of 0.17, indicating limited predictive power.
+</p>
+<p>
+This suggests that linear regression captures some trend but may be too simple for this task. More advanced models could yield better performance.
+</p>
+
+<h3>2.3 Conclusion</h3>
+<p>
+This project used PCA, BERT embeddings, and two ML models to predict OutputType and ProjectDuration. While classification reached 79% accuracy, regression showed moderate results. Overall, the project demonstrates the importance of feature design, model selection, and iterative analysis in real-world data science.
+</p>

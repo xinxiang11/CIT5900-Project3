@@ -1,0 +1,11 @@
+# requirements.txt
+pandas
+openpyxl
+tiktoken
+protobuf
+numpy
+matplotlib
+seaborn
+scikit-learn
+sentence-transformers
+umap-learn
