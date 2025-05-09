@@ -23,7 +23,6 @@ CIT5900_Project3/
 │       └── ... (group8.csv)
 │
 ├── output/                    # Results and figures
-│   ├── enriched_output.csv
 │   ├── ResearchOutputs Group6.xlsx
 │   ├── eda_figures/
 │   └── model_figures/
