@@ -3,34 +3,37 @@
 This project explores research outputs associated with the Federal Statistical Research Data Centers (FSRDCs).  
 We consolidated scattered data sources, enriched metadata using APIs, and prepared the data for analysis and modeling.
 
-##  Folder Structure
+## Folder Structure
 
+```
 CIT5900_Project3/
 │
-├── analysis/                 # Python modules for each step
+├── analysis/                  # Python modules for each step
 │   ├── merge_clean.py
 │   ├── deduplicate_match.py
 │   ├── enrich_data.py
 │   ├── eda_analysis.py
 │   └── modeling.py
 │
-├── data/                     # Input files
+├── data/                      # Input files
 │   ├── ProjectsAllMetadata.xlsx
-│   └── raw/                  # Raw input from groups
+│   └── raw/                   # Raw input from groups
 │       ├── group1.csv
 │       ├── group2.csv
 │       └── ... (group8.csv)
 │
-├── output/                   # results
+├── output/                    # Results and figures
 │   ├── enriched_output.csv
 │   ├── ResearchOutputs Group6.xlsx
 │   ├── eda_figures/
 │   └── model_figures/
 │
-├── index.html                # Final HTML report with plots
-├── main.py                   # Master script to run the project
+├── index.html                 # Final HTML report with plots
+├── main.py                    # Master script to run the project
 ├── requirements.txt
 └── README.md
+```
+
 
 ##  How to Run the Project
 
